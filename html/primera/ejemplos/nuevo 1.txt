@@ -1,0 +1,110 @@
+import 'package:flutterfilascolum/main.dart';
+import 'package:flutter/material.dart';
+import 'package:flutterfilascolum/utilerias/constantes.dart';
+import 'package:flutterfilascolum/utilerias/constantes.dart';
+
+void main() {
+  runApp(FilaCol());
+}
+
+class FilaCol extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Filas y Columnas',
+      theme: ThemeData(primarySwatch: Colors.grey),
+      home: Filas(),
+    );
+  }
+}
+
+class Filas extends StatefulWidget {
+  @override
+  final String titulo = "Hola";
+  State<Filas> createState() => _FIlasState();
+}
+
+class _FIlasState extends State<Filas> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(titulo),
+        ),
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              nombre(),
+              registroUsuario(),
+              passUsuario(),
+              recuperarpass(),
+              fondo(),
+              /*SizedBox(
+                  height: 250.0,
+                  width: 350.0,
+                  child: Image.asset('assets/emul.PNG')),
+              SizedBox(
+                  height: 250.0,
+                  width: 350.0,
+                  child: Image.network(
+                      'https://www.cleverfiles.com/howto/wp-content/uploads/2018/03/minion.jpg'))*/
+            ])
+
+        /* Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+        Container (
+          width: MediaQuery.of(context).size.width,
+          child: Text("Valor1"),
+          ),
+          Icon(Icons.add_call),
+          Text("Llamada",textAlign: TextAlign.center),
+        ],
+      ),*/
+        );
+  }
+}
+
+/*Widget fondo() {
+  return Container(
+    child: Center(
+      child: RotatedBox(
+        quarterTurns: 18,
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(
+                      "https://www.cleverfiles.com/howto/wp-content/uploads/2018/03/minion.jpg"))),
+        ),
+      ),
+    ),
+  );
+}*/
+
+Widget nombre() {
+  return Text("Iniciado", style: TextStyle(color: Colors.blue, fontSize: 30.0));
+}
+
+Widget registroUsuario() {
+  return TextField(decoration: InputDecoration(hintText: "Ingrese Su Nombre"));
+}
+
+Widget passUsuario() {
+  return TextField(
+      decoration: InputDecoration(hintText: "Ingrese Su Contraseña"));
+}
+
+Widget recuperarpass() {
+  return TextField(
+      decoration: InputDecoration(hintText: "Recuperar contraseña"));
+}
+
+Widget fondo() {
+  return Container(
+      child: Center(
+          child: Image(
+              image: NetworkImage(
+                  "https://goarbit.com//backend/assets/images/users/avatars/8.png?v=6.5"))));
+}

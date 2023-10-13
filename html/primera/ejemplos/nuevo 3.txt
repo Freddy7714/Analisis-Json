@@ -1,0 +1,104 @@
+import 'package:flutterfilascolum/main.dart';
+import 'package:flutter/material.dart';
+import 'package:flutterfilascolum/utilerias/constantes.dart';
+import 'package:flutterfilascolum/utilerias/constantes.dart';
+
+void main() {
+  runApp(FilaCol());
+}
+
+class FilaCol extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Filas y Columnas',
+      theme: ThemeData(primarySwatch: Colors.grey),
+      home: Filas(),
+    );
+  }
+}
+
+class Filas extends StatefulWidget {
+  @override
+  final String titulo = "Hola";
+  State<Filas> createState() => _FIlasState();
+}
+
+class _FIlasState extends State<Filas> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(titulo),
+        ),
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              parcial(),
+              carnet(),
+              fondo(),
+              nombre(),
+              apellido(),
+              ingreseusuario(),
+              password(),
+              ingresar(),
+              cancelar(),
+            ])
+        );
+  }
+}
+Widget parcial() {
+  return Text("Parcial I - ETPS3!",
+      style: TextStyle(color: Colors.blue, fontSize: 30.0));
+}
+
+Widget carnet() {
+  return Text("Bonilla Lovo, José Fredy - 25-0346-2017",
+      style: TextStyle(color: Colors.black, fontSize: 20.0));
+}
+
+Widget fondo() {
+  return Container(
+      child: Center(
+          child: Image(
+              image: NetworkImage(
+                  "https://goarbit.com//backend/assets/images/users/avatars/8.png?v=6.5"))));
+}
+
+Widget nombre() {
+  return TextField( decoration: InputDecoration(hintText: "Ingrese Su Nombre"));
+}
+
+Widget apellido() {
+  return TextField(
+      decoration: InputDecoration(hintText: "Ingrese Su Apellido"));
+}
+
+Widget ingreseusuario() {
+  return TextField(decoration: InputDecoration(hintText: "Ingrese Usuario"));
+}
+
+Widget password() {
+  return TextField(
+      decoration: InputDecoration(hintText: "Ingrese Su Password"));
+}
+
+Widget ingresar() {
+  return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 1),
+      child: TextButton(
+          style: TextButton.styleFrom(
+              primary: Colors.white, backgroundColor: Colors.blueAccent),
+          onPressed: () {},
+          child: Text('Ingresar')));
+}
+
+Widget cancelar() {
+  return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 1),
+      child: TextButton(
+          style: TextButton.styleFrom(
+              primary: Colors.white, backgroundColor: Colors.red),
+          onPressed: () {},
+          child: Text('Ingresar')));
+}
